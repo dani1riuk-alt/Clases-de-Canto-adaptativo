@@ -21,7 +21,7 @@
     .diagram {
       flex: 3;
       padding: 20px;
-      overflow-y: auto;
+      overflow: auto;
     }
 
     .sidebar {
@@ -31,14 +31,9 @@
       border-left: 2px solid #e0e0e0;
     }
 
-    h1 {
+    h1, h2 {
       text-align: center;
       color: #333;
-    }
-
-    h2 {
-      text-align: center;
-      color: #444;
     }
 
     .card {
@@ -72,6 +67,26 @@
       color: white;
     }
 
+    button {
+      padding: 8px 12px;
+      margin: 5px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      background: #3498db;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    .zoom-controls {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
   </style>
 </head>
 
@@ -81,9 +96,21 @@
 
   <!-- DIAGRAMA -->
   <div class="diagram">
+
     <h1>🎤 Aprendizaje Adaptativo en Clases de Canto</h1>
 
-    <div class="mermaid">
+    <!-- ZOOM -->
+    <div class="zoom-controls">
+      <button onclick="zoomOut()">➖</button>
+      <span id="zoomLevel">100%</span>
+      <button onclick="zoomIn()">➕</button>
+    </div>
+
+    <!-- CONTENEDOR ZOOM -->
+    <div id="zoomContainer">
+
+      <!-- DIAGRAMA -->
+      <div class="mermaid">
 flowchart TD
 
 A["Tema: Técnica vocal y canto"] --> B["Evaluación diagnóstica"]
@@ -119,92 +146,92 @@ E2 -->|Sin cambio| E
 
 F2 -->|Ajuste| F
 F2 -->|Mejora| D
+      </div>
+
+      <!-- TABLA -->
+      <h2>📊 Tabla de Desempeño</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Ruta</th>
+            <th>Nivel</th>
+            <th>Objetivo</th>
+            <th>Actividades</th>
+            <th>Recursos</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr style="background:#fdecea;">
+            <td>🔴 Fundamentos vocales</td>
+            <td>Bajo</td>
+            <td>Desarrollar respiración, postura y emisión</td>
+            <td>
+              - Respiración diafragmática<br>
+              - Vocalización básica<br>
+              - Ejercicios de postura
+            </td>
+            <td>
+              - Apps de afinación<br>
+              - Videos básicos<br>
+              - Espejo
+            </td>
+          </tr>
+
+          <tr style="background:#fff8e1;">
+            <td>🟡 Técnica guiada</td>
+            <td>Medio</td>
+            <td>Mejorar afinación y control vocal</td>
+            <td>
+              - Escalas musicales<br>
+              - Canto guiado<br>
+              - Control de volumen
+            </td>
+            <td>
+              - Karaoke<br>
+              - Pistas instrumentales<br>
+              - Apps vocales
+            </td>
+          </tr>
+
+          <tr style="background:#e8f5e9;">
+            <td>🟢 Interpretación avanzada</td>
+            <td>Alto</td>
+            <td>Desarrollar expresión y estilo</td>
+            <td>
+              - Interpretación de canciones<br>
+              - Expresión emocional<br>
+              - Presentaciones
+            </td>
+            <td>
+              - Micrófono<br>
+              - Grabación<br>
+              - Escenario
+            </td>
+          </tr>
+
+          <tr style="background:#e3f2fd;">
+            <td>🔵 Ruta personalizada</td>
+            <td>Variable</td>
+            <td>Adaptar al estilo del estudiante</td>
+            <td>
+              - Improvisación<br>
+              - Análisis musical<br>
+              - Estilos (folklore, pop)
+            </td>
+            <td>
+              - YouTube<br>
+              - Spotify<br>
+              - Instrumentos
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
 
     </div>
-
-    <!-- TABLA -->
-    <h2>📊 Tabla de Desempeño</h2>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Ruta</th>
-          <th>Nivel</th>
-          <th>Objetivo</th>
-          <th>Actividades</th>
-          <th>Recursos</th>
-        </tr>
-      </thead>
-
-      <tbody>
-
-        <tr style="background:#fdecea;">
-          <td>🔴 Fundamentos vocales</td>
-          <td>Bajo</td>
-          <td>Desarrollar respiración, postura y emisión</td>
-          <td>
-            - Respiración diafragmática<br>
-            - Vocalización básica<br>
-            - Ejercicios de postura
-          </td>
-          <td>
-            - Apps de afinación<br>
-            - Videos básicos<br>
-            - Espejo
-          </td>
-        </tr>
-
-        <tr style="background:#fff8e1;">
-          <td>🟡 Técnica guiada</td>
-          <td>Medio</td>
-          <td>Mejorar afinación y control vocal</td>
-          <td>
-            - Escalas musicales<br>
-            - Canto guiado<br>
-            - Control de volumen
-          </td>
-          <td>
-            - Karaoke<br>
-            - Pistas instrumentales<br>
-            - Apps vocales
-          </td>
-        </tr>
-
-        <tr style="background:#e8f5e9;">
-          <td>🟢 Interpretación avanzada</td>
-          <td>Alto</td>
-          <td>Desarrollar expresión y estilo</td>
-          <td>
-            - Interpretación de canciones<br>
-            - Expresión emocional<br>
-            - Presentaciones
-          </td>
-          <td>
-            - Micrófono<br>
-            - Grabación<br>
-            - Escenario
-          </td>
-        </tr>
-
-        <tr style="background:#e3f2fd;">
-          <td>🔵 Ruta personalizada</td>
-          <td>Variable</td>
-          <td>Adaptar al estilo del estudiante</td>
-          <td>
-            - Improvisación<br>
-            - Análisis musical<br>
-            - Estilos (folklore, pop)
-          </td>
-          <td>
-            - YouTube<br>
-            - Spotify<br>
-            - Instrumentos
-          </td>
-        </tr>
-
-      </tbody>
-    </table>
-
   </div>
 
   <!-- SIDEBAR -->
@@ -237,6 +264,29 @@ F2 -->|Mejora| D
 
 <script>
   mermaid.initialize({ startOnLoad: true });
+
+  let zoom = 100;
+
+  function updateZoom() {
+    const container = document.getElementById("zoomContainer");
+    container.style.transform = `scale(${zoom / 100})`;
+    container.style.transformOrigin = "top center";
+    document.getElementById("zoomLevel").innerText = zoom + "%";
+  }
+
+  function zoomIn() {
+    if (zoom < 200) {
+      zoom += 10;
+      updateZoom();
+    }
+  }
+
+  function zoomOut() {
+    if (zoom > 10) {
+      zoom -= 10;
+      updateZoom();
+    }
+  }
 </script>
 
 </body>
