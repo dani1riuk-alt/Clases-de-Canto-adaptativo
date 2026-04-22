@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Aprendizaje Adaptativo - Clases de Canto</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fb;
+      display: flex;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+    }
+
+    .diagram {
+      flex: 3;
+      padding: 20px;
+    }
+
+    .sidebar {
+      flex: 1;
+      background: #ffffff;
+      padding: 20px;
+      border-left: 2px solid #e0e0e0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .card {
+      background: #f0f4ff;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .ruta1 { border-left: 5px solid #e74c3c; }
+    .ruta2 { border-left: 5px solid #f1c40f; }
+    .ruta3 { border-left: 5px solid #2ecc71; }
+    .rutaN { border-left: 5px solid #3498db; }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- DIAGRAMA -->
+  <div class="diagram">
+    <h1>🎤 Aprendizaje Adaptativo en Clases de Canto</h1>
+
+    <div class="mermaid">
+flowchart TD
+
+A["Tema: Técnica vocal y canto"] --> B["Evaluación diagnóstica"]
+
+B -->|Bajo desempeño| C["Ruta 1: Fundamentos vocales"]
+B -->|Desempeño medio| D["Ruta 2: Técnica guiada"]
+B -->|Alto desempeño| E["Ruta 3: Interpretación avanzada"]
+B -->|Otro perfil| F["Ruta N: Ruta personalizada"]
+
+C --> C1["Respiración diafragmática<br>Ejercicios básicos"]
+C1 --> C2["Re-evaluación"]
+
+D --> D1["Afinación y control vocal<br>Ejercicios guiados"]
+D1 --> D2["Re-evaluación"]
+
+E --> E1["Expresión e interpretación<br>Retos vocales"]
+E1 --> E2["Re-evaluación"]
+
+F --> F1["Estilo personalizado<br>Aprendizaje creativo"]
+F1 --> F2["Re-evaluación"]
+
+C2 -->|Mejora| D
+C2 -->|Sin cambio| C
+C2 -->|Bajo| C
+
+D2 -->|Mejora| E
+D2 -->|Bajo| C
+D2 -->|Sin cambio| D
+
+E2 -->|Éxito| G["Dominio del canto"]
+E2 -->|Bajo| D
+E2 -->|Sin cambio| E
+
+F2 -->|Ajuste| F
+F2 -->|Mejora| D
+
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>📚 Rutas de Aprendizaje</h2>
+
+    <div class="card ruta1">
+      <h3>🔴 Ruta 1: Fundamentos vocales</h3>
+      <p>Respiración, postura, emisión básica de la voz.</p>
+    </div>
+
+    <div class="card ruta2">
+      <h3>🟡 Ruta 2: Técnica guiada</h3>
+      <p>Ejercicios de afinación, escalas y control vocal.</p>
+    </div>
+
+    <div class="card ruta3">
+      <h3>🟢 Ruta 3: Interpretación avanzada</h3>
+      <p>Expresión emocional, dinámica y performance.</p>
+    </div>
+
+    <div class="card rutaN">
+      <h3>🔵 Ruta N: Personalizada</h3>
+      <p>Adaptación al estilo del estudiante (folklore, pop, lírico, etc.).</p>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  mermaid.initialize({ startOnLoad: true });
+</script>
+
+</body>
+</html>
